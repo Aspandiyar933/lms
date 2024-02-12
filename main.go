@@ -1,24 +1,17 @@
 package main
 
 import (
+	handlers "command-line-arguments/Users/user/Documents/lms/handlers/hello.go"
 	"fmt"
 	"io"
 	"log"
 	"net/http"
+	"os"
 )
 
 
 func main() {
-
-	http.HandleFunc("/", func(w http.ResponseWriter, r*http.Request){
-		log.Println("Hello, World")
-		d, _ := io.ReadAll(r.Body)
-		fmt.Fprintf(w, "Hello, %s", d)
-	})
-
-	http.HandleFunc("/aspan", func(http.ResponseWriter, *http.Request){
-		log.Println("Hello, Aspan")
-	})
-
+	l := log.New(os.Stdout, "product-api", log.LstdFlags)
+	hh := handlers.
 	http.ListenAndServe(":9090", nil)
 }
