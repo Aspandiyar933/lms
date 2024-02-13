@@ -1,7 +1,7 @@
 package main
 
 import (
-	handlers "command-line-arguments/Users/user/Documents/lms/handlers/hello.go"
+	"github.com/Aspandiyar933/lms/tree/main/handlers"
 	"fmt"
 	"io"
 	"log"
@@ -12,6 +12,9 @@ import (
 
 func main() {
 	l := log.New(os.Stdout, "product-api", log.LstdFlags)
-	hh := handlers.
-	http.ListenAndServe(":9090", nil)
+	hh := handlers.NewHello(l)
+
+	sm := http.NewServeMux()
+	sm.Handle('/', hh)
+	http.ListenAndServe(":9090", sm)
 }
