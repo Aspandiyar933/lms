@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/Aspandiyar933/lms/tree/main/handlers"
+	handlers "github.com/Aspandiyar933/lms/tree/main/handlers"
 	"fmt"
 	"io"
 	"log"
@@ -15,6 +15,6 @@ func main() {
 	hh := handlers.NewHello(l)
 
 	sm := http.NewServeMux()
-	sm.Handle('/', hh)
+	sm.Handle("/", hh)
 	http.ListenAndServe(":9090", sm)
 }
